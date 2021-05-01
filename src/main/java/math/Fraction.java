@@ -91,8 +91,8 @@ public class Fraction extends Number implements Cloneable {
      * @return a fraction that represents the result
      */
     public Fraction subtract(int n) {
-        // TODO (UI98UB)
-        return null;
+        Fraction result = new Fraction(this.numerator - this.denominator * n,this.denominator);
+        return result;
     }
 
     /**
