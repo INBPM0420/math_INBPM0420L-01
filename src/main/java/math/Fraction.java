@@ -6,29 +6,26 @@ package math;
 public class Fraction extends Number implements Cloneable {
 
     /**
+     * The {@code Fraction} object that represents the number zero.
+     */
+    public static final Fraction ZERO = new Fraction(0);
+    /**
+     * The {@code Fraction} object that represents the number one.
+     */
+    public static final Fraction ONE = new Fraction(1);
+    /**
      * The numerator of this fraction.
      */
     protected final int numerator;
-
     /**
      * The denominator of this fraction that is always positive.
      */
     protected final int denominator;
 
     /**
-     * The {@code Fraction} object that represents the number zero.
-     */
-    public static final Fraction ZERO = new Fraction(0);
-
-    /**
-     * The {@code Fraction} object that represents the number one.
-     */
-    public static final Fraction ONE = new Fraction(1);
-
-    /**
      * Constructs a {@code Fraction} object.
      *
-     * @param numerator the numerator of the fraction
+     * @param numerator   the numerator of the fraction
      * @param denominator the denominator of the fraction
      * @throws ArithmeticException if the denominator is zero
      */
@@ -91,7 +88,7 @@ public class Fraction extends Number implements Cloneable {
      * @return a fraction that represents the result
      */
     public Fraction subtract(int n) {
-        Fraction result = new Fraction(this.numerator - this.denominator * n,this.denominator);
+        Fraction result = new Fraction(this.numerator - this.denominator * n, this.denominator);
         return result;
     }
 
@@ -211,7 +208,7 @@ public class Fraction extends Number implements Cloneable {
      */
     public double doubleValue() {
         // TODO (M569FB)
-        return 0;
+        return (getNumerator() * 1.0d) / getDenominator();
     }
 
     /**
@@ -221,7 +218,7 @@ public class Fraction extends Number implements Cloneable {
      */
     public float floatValue() {
         // TODO (M569FB)
-        return 0;
+        return (getNumerator() * 1.0f) / getDenominator();
     }
 
     /**
