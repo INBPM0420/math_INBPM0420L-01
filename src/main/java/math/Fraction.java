@@ -28,7 +28,7 @@ public class Fraction extends Number implements Cloneable {
     /**
      * Constructs a {@code Fraction} object.
      *
-     * @param numerator the numerator of the fraction
+     * @param numerator   the numerator of the fraction
      * @param denominator the denominator of the fraction
      * @throws ArithmeticException if the denominator is zero
      */
@@ -91,7 +91,7 @@ public class Fraction extends Number implements Cloneable {
      * @return a fraction that represents the result
      */
     public Fraction subtract(int n) {
-        Fraction result = new Fraction(this.numerator - this.denominator * n,this.denominator);
+        Fraction result = new Fraction(this.numerator - this.denominator * n, this.denominator);
         return result;
     }
 
@@ -125,8 +125,11 @@ public class Fraction extends Number implements Cloneable {
      * @return a fraction that represents the result
      */
     public Fraction pow(int n) {
-        // TODO (T739TU)
-        return null;
+        if (n >= 0) {
+            return new Fraction((int) Math.pow(numerator, n), (int) Math.pow(denominator, n));
+        } else {
+            return new Fraction((int) Math.pow(denominator, -n), (int) Math.pow(numerator, -n));
+        }
     }
 
     /**
