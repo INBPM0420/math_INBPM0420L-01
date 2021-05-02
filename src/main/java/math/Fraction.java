@@ -241,8 +241,7 @@ public class Fraction extends Number implements Cloneable {
      * otherwise
      */
     public boolean isZero() {
-        // TODO (FH6K37)
-        return false;
+        return (numerator == 0 ? true : false);
     }
 
     /**
@@ -287,8 +286,9 @@ public class Fraction extends Number implements Cloneable {
      */
     @Override
     public int hashCode() {
-        // TODO (FH6K37)
-        return 0;
+        int result = Integer.hashCode(numerator);
+        result = 29 * result + Integer.hashCode(denominator);
+        return result;
     }
 
     /**
