@@ -115,7 +115,11 @@ public class Fraction extends Number implements Cloneable {
      */
     public Fraction divide(int n) throws ArithmeticException {
         // TODO (BENEFP)
-        return null;
+        if (n != 0)
+            return new Fraction(numerator, denominator* n);
+        else
+            throw new ArithmeticException();
+
     }
 
     /**
