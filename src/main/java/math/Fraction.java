@@ -1,5 +1,11 @@
 package math;
 
+import javax.swing.plaf.basic.BasicOptionPaneUI;
+import java.util.Optional;
+import java.util.function.BinaryOperator;
+import java.util.function.Function;
+import java.util.function.UnaryOperator;
+
 /**
  * Class for representing fractions that are not reduced automatically.
  */
@@ -28,7 +34,7 @@ public class Fraction extends Number implements Cloneable {
     /**
      * Constructs a {@code Fraction} object.
      *
-     * @param numerator the numerator of the fraction
+     * @param numerator   the numerator of the fraction
      * @param denominator the denominator of the fraction
      * @throws ArithmeticException if the denominator is zero
      */
@@ -91,7 +97,7 @@ public class Fraction extends Number implements Cloneable {
      * @return a fraction that represents the result
      */
     public Fraction subtract(int n) {
-        Fraction result = new Fraction(this.numerator - this.denominator * n,this.denominator);
+        Fraction result = new Fraction(this.numerator - this.denominator * n, this.denominator);
         return result;
     }
 
@@ -159,8 +165,20 @@ public class Fraction extends Number implements Cloneable {
      * @throws ArithmeticException if the parameter {@code fraction} is zero
      */
     public Fraction divide(Fraction fraction) throws ArithmeticException {
-        // TODO (LOZ5G9)
-        return null;
+        if (fraction.isZero()) throw new ArithmeticException("divide by zero");
+        else {
+            Optional<Fraction> result = Optional.ofNullable(multiply(fraction.reciprocal())); // due to mising implementations this can be empty
+            if (!result.isEmpty()) return result.get();
+            else {
+                // Fraction::reciprocal method implementation missing
+                UnaryOperator<Fraction> localReciprocal = (Fraction realNumber) -> new Fraction(realNumber.getDenominator(), realNumber.getNumerator());
+
+                // Fraction::multiply method implementation missing
+                BinaryOperator<Fraction> localMultiply = (Fraction left, Fraction right) ->
+                        new Fraction(left.getNumerator() * right.getNumerator(), left.getDenominator() * right.getDenominator());
+                return localMultiply.apply(this, localReciprocal.apply(fraction));
+            }
+        }
     }
 
     /**
