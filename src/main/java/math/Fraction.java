@@ -141,8 +141,15 @@ public class Fraction extends Number implements Cloneable {
      * @return a fraction that represents the result
      */
     public Fraction add(Fraction fraction) {
-        // TODO (L63M85)
-        return null;
+        if(this.denominator==fraction.denominator)
+        {
+            return new Fraction(this.numerator+fraction.numerator, this.denominator);
+        }
+        else {
+            int szamlalo = (fraction.numerator * this.denominator + fraction.denominator * this.numerator);
+            int nevezo = this.denominator * fraction.denominator;
+            return new Fraction(szamlalo, nevezo);
+        }
     }
 
     /**
