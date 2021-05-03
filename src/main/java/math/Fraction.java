@@ -1,9 +1,8 @@
 package math;
 
-import javax.swing.plaf.basic.BasicOptionPaneUI;
+
 import java.util.Optional;
 import java.util.function.BinaryOperator;
-import java.util.function.Function;
 import java.util.function.UnaryOperator;
 
 /**
