@@ -193,7 +193,7 @@ public class Fraction extends Number implements Cloneable {
      */
     public Fraction reciprocal() {
         // TODO (BH1TAD)
-        return null;
+        return new Fraction(getDenominator(), getNumerator());
     }
 
     /**
