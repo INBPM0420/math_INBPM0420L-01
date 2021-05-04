@@ -182,8 +182,8 @@ public class Fraction extends Number implements Cloneable {
      * @return a fraction that represents the result
      */
     public Fraction multiply(Fraction fraction) {
-        // TODO (P2VAQN)
-        return null;
+        if (fraction.isZero()) return ZERO;
+        return new Fraction(this.getNumerator() * fraction.getNumerator(), this.getDenominator() * fraction.getDenominator());
     }
 
     /**
@@ -192,7 +192,6 @@ public class Fraction extends Number implements Cloneable {
      * @return a fraction that represents the reciprocal of this fraction
      */
     public Fraction reciprocal() {
-        // TODO (BH1TAD)
         return new Fraction(getDenominator(), getNumerator());
     }
 
