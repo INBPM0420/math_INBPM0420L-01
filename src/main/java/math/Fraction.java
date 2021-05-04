@@ -102,8 +102,9 @@ public class Fraction extends Number implements Cloneable {
      * @return a fraction that represents the result
      */
     public Fraction multiply(int n) {
-        // TODO (YCY2PQ)
-        return null;
+        if (n==0)
+            return Fraction.ZERO;
+        return new Fraction(this.numerator  * n,this.denominator);
     }
 
     /**
@@ -115,7 +116,11 @@ public class Fraction extends Number implements Cloneable {
      */
     public Fraction divide(int n) throws ArithmeticException {
         // TODO (BENEFP)
-        return null;
+        if (n != 0)
+            return new Fraction(numerator, denominator* n);
+        else
+            throw new ArithmeticException();
+
     }
 
     /**
@@ -136,8 +141,15 @@ public class Fraction extends Number implements Cloneable {
      * @return a fraction that represents the result
      */
     public Fraction add(Fraction fraction) {
-        // TODO (L63M85)
-        return null;
+        if(this.denominator==fraction.denominator)
+        {
+            return new Fraction(this.numerator+fraction.numerator, this.denominator);
+        }
+        else {
+            int szamlalo = (fraction.numerator * this.denominator + fraction.denominator * this.numerator);
+            int nevezo = this.denominator * fraction.denominator;
+            return new Fraction(szamlalo, nevezo);
+        }
     }
 
     /**
@@ -190,8 +202,7 @@ public class Fraction extends Number implements Cloneable {
      * @return the absolute value of this fraction
      */
     public Fraction abs() {
-        // TODO (H1W3R3)
-        return null;
+        return new Fraction(Math.abs(numerator),denominator);
     }
 
     /**
@@ -241,8 +252,7 @@ public class Fraction extends Number implements Cloneable {
      * otherwise
      */
     public boolean isZero() {
-        // TODO (FH6K37)
-        return false;
+        return (numerator == 0 ? true : false);
     }
 
     /**
@@ -287,8 +297,9 @@ public class Fraction extends Number implements Cloneable {
      */
     @Override
     public int hashCode() {
-        // TODO (FH6K37)
-        return 0;
+        int result = Integer.hashCode(numerator);
+        result = 29 * result + Integer.hashCode(denominator);
+        return result;
     }
 
     /**
