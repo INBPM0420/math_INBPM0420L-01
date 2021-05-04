@@ -171,8 +171,8 @@ public class Fraction extends Number implements Cloneable {
      * @throws ArithmeticException if the parameter {@code fraction} is zero
      */
     public Fraction divide(Fraction fraction) throws ArithmeticException {
-        // TODO (LOZ5G9)
-        return null;
+        if (fraction.isZero()) throw new ArithmeticException("divide by zero");
+        return multiply(fraction.reciprocal());
     }
 
     /**
