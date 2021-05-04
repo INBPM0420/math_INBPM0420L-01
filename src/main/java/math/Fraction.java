@@ -182,7 +182,7 @@ public class Fraction extends Number implements Cloneable {
      * @return a fraction that represents the result
      */
     public Fraction multiply(Fraction fraction) {
-        if (fraction.isZero()) return ZERO;
+        if (fraction.isZero() || isZero()) return ZERO;
         return new Fraction(this.getNumerator() * fraction.getNumerator(), this.getDenominator() * fraction.getDenominator());
     }
 
