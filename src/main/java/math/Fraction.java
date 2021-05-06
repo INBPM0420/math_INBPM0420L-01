@@ -222,7 +222,7 @@ public class Fraction extends Number implements Cloneable {
      */
     public double doubleValue() {
         // TODO (M569FB)
-        return 0;
+        return (getNumerator() * 1.0d) / getDenominator();
     }
 
     /**
@@ -232,7 +232,7 @@ public class Fraction extends Number implements Cloneable {
      */
     public float floatValue() {
         // TODO (M569FB)
-        return 0;
+        return (getNumerator() * 1.0f) / getDenominator();
     }
 
     /**
