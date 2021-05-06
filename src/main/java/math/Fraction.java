@@ -171,8 +171,8 @@ public class Fraction extends Number implements Cloneable {
      * @throws ArithmeticException if the parameter {@code fraction} is zero
      */
     public Fraction divide(Fraction fraction) throws ArithmeticException {
-        // TODO (LOZ5G9)
-        return null;
+        if (fraction.isZero()) throw new ArithmeticException("divide by zero");
+        return multiply(fraction.reciprocal());
     }
 
     /**
@@ -182,8 +182,8 @@ public class Fraction extends Number implements Cloneable {
      * @return a fraction that represents the result
      */
     public Fraction multiply(Fraction fraction) {
-        // TODO (P2VAQN)
-        return null;
+        if (fraction.isZero() || isZero()) return ZERO;
+        return new Fraction(this.getNumerator() * fraction.getNumerator(), this.getDenominator() * fraction.getDenominator());
     }
 
     /**
@@ -192,8 +192,7 @@ public class Fraction extends Number implements Cloneable {
      * @return a fraction that represents the reciprocal of this fraction
      */
     public Fraction reciprocal() {
-        // TODO (BH1TAD)
-        return null;
+        return new Fraction(getDenominator(), getNumerator());
     }
 
     /**
